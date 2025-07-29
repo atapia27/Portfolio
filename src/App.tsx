@@ -48,7 +48,7 @@ function App() {
         <div className="fixed inset-0 -z-10">
           <Canvas
             camera={{ position: [0, 0, 8], fov: 60 }}
-            style={{ background: "transparent" }}
+            className="bg-transparent"
           >
             <ambientLight intensity={0.2} />
             <pointLight position={[10, 10, 10]} intensity={0.3} />

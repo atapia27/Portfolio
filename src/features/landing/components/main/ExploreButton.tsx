@@ -1,12 +1,19 @@
 import { cn } from "../../../../shared/utils/cn";
 
-export function ExploreButton() {
+interface ExploreButtonProps {
+  showButton: boolean;
+}
+
+export function ExploreButton({ showButton }: ExploreButtonProps) {
   return (
     <button
       onClick={() =>
         document.getElementById("about")?.scrollIntoView({ behavior: "smooth" })
       }
-      className="px-8 py-3 text-white font-bold rounded-xl text-lg transform transition-all duration-300 hover:scale-105 hover:shadow-xl bg-neural-600 hover:bg-neural-500 focus:outline-none focus:ring-4 focus:ring-neural-400 focus:ring-offset-4 focus:ring-offset-black relative group shadow-lg"
+      className={cn(
+        "px-8 py-3 border-white border-opacity-40 text-white rounded-xl text-lg transform transition-all duration-300 hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-offset-4 focus:ring-offset-black relative group shadow-lg border-2 bg-portfolio-deep-purple hover:bg-portfolio-deep-purple-shade-1 focus:ring-portfolio-deep-purple font-courier animate-button-pulse",
+        showButton ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+      )}
     >
       <span className="flex flex-row items-center">
         <span>Explore My Work</span>

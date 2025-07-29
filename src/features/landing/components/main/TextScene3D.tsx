@@ -63,7 +63,7 @@ export function TextScene3D() {
 
     const currentTime = clock.elapsedTime;
     const rotationTime = currentTime - (animationStartTime + 0.6); // Start after initial animation
-    const rotationProgress = (rotationTime % 18) / 18; // 8 second cycle for slower rotation
+    const rotationProgress = (rotationTime % 14) / 14; // 8 second cycle for slower rotation
 
     // Half rotation between the constraints (±Math.PI / 18 = ±10°)
     const maxRotation = Math.PI / 32; // Half of maxAzimuthAngle constraint
@@ -87,7 +87,7 @@ export function TextScene3D() {
         text="Cognitive"
         position={[0, 0.625, 0]} // Half the distance above center
         fontSize={1.25}
-        color="#FF6B6B"
+        color="#ff6b6b"
         delay={0}
         duration={1}
         isTitle={true}
@@ -99,7 +99,7 @@ export function TextScene3D() {
         text="Engineering"
         position={[0, -0.625, 0]} // Half the distance below center
         fontSize={1.25}
-        color="#FF6B6B"
+        color="#ff6b6b"
         delay={0}
         duration={1}
         isTitle={true}

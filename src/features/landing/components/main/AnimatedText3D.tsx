@@ -19,7 +19,7 @@ export function AnimatedText3D({
   text,
   position,
   fontSize = 0.5,
-  color = "#FF6B6B",
+  color = "#ff6b6b", // portfolio-coral equivalent
   delay = 0,
   duration = 1,
   isTitle = false,

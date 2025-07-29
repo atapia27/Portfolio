@@ -60,14 +60,7 @@ export function AboutSection() {
   return (
     <section
       id="about"
-      className="section-container py-20 relative overflow-hidden"
-      style={{
-        backgroundImage: "url(/background.gif)",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-        backgroundAttachment: "fixed",
-      }}
+      className="section-container py-20 relative overflow-hidden bg-background-gif bg-cover bg-center bg-no-repeat bg-fixed"
     >
       {/* Overlay for better text readability */}
       <div className="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>

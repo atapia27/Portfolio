@@ -8,7 +8,7 @@ export function Background3D() {
     <div className="absolute inset-0">
       <Canvas
         camera={{ position: [0, 0, 5], fov: 75 }}
-        style={{ background: "transparent" }}
+        className="bg-transparent"
         gl={{ antialias: true, alpha: true }}
       >
         <ambientLight intensity={0.8} />

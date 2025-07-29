@@ -9,7 +9,7 @@ export function LandingSection() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowTypewriter(true);
-    }, 3500);
+    }, 3000);
 
     return () => clearTimeout(timer);
   }, []);
@@ -25,14 +25,13 @@ export function LandingSection() {
         muted
         playsInline
         loop={false}
-        className="absolute inset-0 w-full h-full object-cover"
-        style={{ zIndex: 0 }}
+        className="absolute inset-0 w-full h-full object-cover -z-10"
       >
         <source src="/AdventureTime.mp4" type="video/mp4" />
       </video>
       {/* 3D Background with Animated Text */}
       <Background3D />
-      16
+      
             {/* Description Overlay - Fixed position, not affected by 3D rotation */}
       <div className="absolute inset-0 z-10 flex flex-col items-center justify-start pt-[50vh] pointer-events-none">
         <div className="text-center">
@@ -70,10 +69,7 @@ export function LandingSection() {
                   cursor={true}
                   repeat={0}
                   speed={70}
-                  className="text-white text-sm md:text-2xl tracking-widest font-normal whitespace-pre drop-shadow-xl"
-                  style={{
-                    fontFamily: "'Adventure Time', sans-serif",
-                  }}
+                  className="text-white text-sm md:text-2xl tracking-widest font-normal whitespace-pre drop-shadow-xl font-adventure"
                 />
               </div>
             )}
@@ -81,7 +77,7 @@ export function LandingSection() {
       </div>
       {/* Bottom Content - Fixed to bottom */}
       <div className="absolute bottom-8 left-0 right-0 z-20 flex flex-col items-center space-y-6">
-        <ExploreButton />
+      <ExploreButton showButton={showTypewriter} />
         <ScrollIndicator />
       </div>
     </section>

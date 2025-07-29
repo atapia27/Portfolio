@@ -152,7 +152,7 @@ export function ProjectsSection() {
         <div className="h-[500px] relative">
           <Canvas
             camera={{ position: [0, 0, 5], fov: 75 }}
-            style={{ background: "transparent" }}
+            className="bg-transparent"
           >
             <ambientLight intensity={0.3} />
             <pointLight position={[10, 10, 10]} intensity={0.8} />
