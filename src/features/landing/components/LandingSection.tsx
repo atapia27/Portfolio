@@ -1,17 +1,25 @@
-import { KeyPrinciples, ExploreButton, ScrollIndicator } from "./main";
+import { KeyPrinciples, ExploreButton } from "./main";
 import { Background3D } from "./main/Background3D";
 import { TypeAnimation } from "react-type-animation";
 import { useState, useEffect } from "react";
 
 export function LandingSection() {
   const [showTypewriter, setShowTypewriter] = useState(false);
+  const [showButton, setShowButton] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
+    const typewriterTimer = setTimeout(() => {
       setShowTypewriter(true);
     }, 3000);
 
-    return () => clearTimeout(timer);
+    const buttonTimer = setTimeout(() => {
+      setShowButton(true);
+    }, 4500); // 3 seconds + 1.5 seconds = 4.5 seconds
+
+    return () => {
+      clearTimeout(typewriterTimer);
+      clearTimeout(buttonTimer);
+    };
   }, []);
 
   return (
@@ -76,9 +84,8 @@ export function LandingSection() {
         </div>
       </div>
       {/* Bottom Content - Fixed to bottom */}
-      <div className="absolute bottom-8 left-0 right-0 z-20 flex flex-col items-center space-y-6">
-      <ExploreButton showButton={showTypewriter} />
-        <ScrollIndicator />
+      <div className="absolute bottom-24 left-0 right-0 z-20 flex flex-col items-center">
+        <ExploreButton showButton={showButton} />
       </div>
     </section>
   );

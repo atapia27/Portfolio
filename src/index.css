@@ -25,6 +25,25 @@
     @apply bg-black text-white font-sans;
     overflow-x: hidden;
   }
+
+  /* Global scrollbar styling to match custom-scrollbar */
+  body::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  body::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+  }
+
+  body::-webkit-scrollbar-thumb {
+    background: rgba(110, 93, 148, 0.5);
+    border-radius: 3px;
+  }
+
+  body::-webkit-scrollbar-thumb:hover {
+    background: rgba(110, 93, 148, 0.7);
+  }
 }
 
 @layer components {
