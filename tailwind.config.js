@@ -134,7 +134,7 @@ export default {
         }
       },
       backgroundImage: {
-        'background-gif': "url('/background.gif')",
+        'background-gif': "url('/fish.gif')",
       },
       backgroundAttachment: {
         'fixed': 'fixed',
