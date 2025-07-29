@@ -133,9 +133,7 @@ export default {
           '50%': { transform: 'translateY(-8px)' }
         }
       },
-      backgroundImage: {
-        'background-gif': "url('/fish.gif')",
-      },
+
       backgroundAttachment: {
         'fixed': 'fixed',
       },

@@ -22,10 +22,25 @@ export function ProjectCard({
         isSelected && "ring-2 ring-neural-400 shadow-neural-400/50",
       )}
     >
-      {/* Project Image Placeholder */}
-      <div className="w-full h-48 bg-gradient-to-br from-neural-500/20 to-synaptic-500/20 rounded-lg mb-4 flex items-center justify-center">
-        <div className="text-4xl opacity-50">
-          {project.featured ? "⭐" : "💻"}
+      {/* Project Image */}
+      <div className="w-full h-48 rounded-lg mb-4 overflow-hidden bg-gradient-to-br from-neural-500/20 to-synaptic-500/20">
+        {project.image ? (
+          <img
+            src={project.image}
+            alt={project.title}
+            className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+            onError={(e) => {
+              // Fallback to placeholder if image fails to load
+              const target = e.target as HTMLImageElement;
+              target.style.display = 'none';
+              target.nextElementSibling?.classList.remove('hidden');
+            }}
+          />
+        ) : null}
+        <div className={`w-full h-full flex items-center justify-center ${project.image ? 'hidden' : ''}`}>
+          <div className="text-4xl opacity-50">
+            {project.featured ? "⭐" : "💻"}
+          </div>
         </div>
       </div>
 
@@ -66,14 +81,26 @@ export function ProjectCard({
         {/* Action Buttons */}
         <div className="flex space-x-2 pt-2">
           {project.link && (
-            <button className="text-xs px-3 py-1 bg-neural-500 text-white rounded-full hover:bg-neural-600 transition-colors">
+            <a
+              href={project.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={(e) => e.stopPropagation()}
+              className="text-xs px-3 py-1 bg-neural-500 text-white rounded-full hover:bg-neural-600 transition-colors cursor-pointer"
+            >
               View
-            </button>
+            </a>
           )}
           {project.github && (
-            <button className="text-xs px-3 py-1 border border-neural-500 text-neural-400 rounded-full hover:bg-neural-500/20 transition-colors">
+            <a
+              href={project.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={(e) => e.stopPropagation()}
+              className="text-xs px-3 py-1 border border-neural-500 text-neural-400 rounded-full hover:bg-neural-500/20 transition-colors cursor-pointer"
+            >
               Code
-            </button>
+            </a>
           )}
         </div>
       </div>

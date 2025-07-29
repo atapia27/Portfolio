@@ -30,20 +30,26 @@ export function ProjectVisualization({
   });
 
   // Categorize projects
-  const cognitiveProjects = projects.filter(
+  const frontendProjects = projects.filter(
     (p) =>
-      p.technologies.includes("Cognitive Science") ||
-      p.technologies.includes("Cognitive Psychology"),
+      p.technologies.includes("React") ||
+      p.technologies.includes("Next.js") ||
+      p.technologies.includes("Vue") ||
+      p.technologies.includes("TypeScript") ||
+      p.technologies.includes("JavaScript"),
   );
-  const technicalProjects = projects.filter(
+  const backendProjects = projects.filter(
     (p) =>
-      !p.technologies.includes("Cognitive Science") &&
-      !p.technologies.includes("Cognitive Psychology"),
+      p.technologies.includes("Python") ||
+      p.technologies.includes("FastAPI") ||
+      p.technologies.includes("SQLAlchemy") ||
+      p.technologies.includes("Firebase") ||
+      p.technologies.includes("TensorFlow"),
   );
 
   return (
     <group ref={groupRef}>
-      {/* Cognitive Science Ring */}
+      {/* Frontend Projects Ring */}
       <group position={[-2, 0, 0]}>
         <Torus
           ref={cognitiveRingRef}
@@ -53,9 +59,9 @@ export function ProjectVisualization({
           <meshStandardMaterial color="#d946ef" transparent opacity={0.4} />
         </Torus>
 
-        {cognitiveProjects.map((project, i) => {
+        {frontendProjects.map((project, i) => {
           const angle =
-            (i / Math.max(cognitiveProjects.length, 1)) * Math.PI * 2;
+            (i / Math.max(frontendProjects.length, 1)) * Math.PI * 2;
           const radius = 1.2;
           const x = Math.cos(angle) * radius;
           const y = Math.sin(angle) * radius;
@@ -78,7 +84,7 @@ export function ProjectVisualization({
         })}
       </group>
 
-      {/* Technical Projects Ring */}
+      {/* Backend Projects Ring */}
       <group position={[2, 0, 0]}>
         <Torus
           ref={technicalRingRef}
@@ -88,9 +94,9 @@ export function ProjectVisualization({
           <meshStandardMaterial color="#0ea5e9" transparent opacity={0.4} />
         </Torus>
 
-        {technicalProjects.map((project, i) => {
+        {backendProjects.map((project, i) => {
           const angle =
-            (i / Math.max(technicalProjects.length, 1)) * Math.PI * 2;
+            (i / Math.max(backendProjects.length, 1)) * Math.PI * 2;
           const radius = 1.2;
           const x = Math.cos(angle) * radius;
           const y = Math.sin(angle) * radius;

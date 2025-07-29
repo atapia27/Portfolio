@@ -8,7 +8,8 @@ export function AboutSection() {
   return (
     <section
       id="about"
-      className="section-container py-20 relative overflow-hidden bg-background-gif bg-cover bg-center bg-no-repeat bg-fixed"
+      className="section-container py-20 relative overflow-hidden bg-cover bg-center bg-no-repeat bg-fixed"
+      style={{ backgroundImage: "url('/fish.gif')" }}
     >
       {/* Enhanced overlay with gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/50 to-black/70 backdrop-blur-sm"></div>

@@ -1,76 +1,73 @@
 import { useState } from "react";
-import { Canvas } from "@react-three/fiber";
-import { OrbitControls } from "@react-three/drei";
 import { ProjectCard } from "./ProjectCard";
-import { ProjectVisualization } from "./ProjectVisualization";
 import { cn } from "../../../shared/utils/cn";
 import type { Project } from "../../../shared/types";
 
 const projects: Project[] = [
   {
-    id: "cognitive-interface",
-    title: "Cognitive Interface System",
+    id: "dog-adoption-platform",
+    title: "Dog Adoption Platform",
     description:
-      "A user interface designed around human attention patterns and decision-making processes. Reduces cognitive load by 40% in complex workflows.",
-    technologies: ["React", "TypeScript", "Three.js", "Cognitive Science"],
-    image: "/api/placeholder/400/300",
-    link: "#",
-    github: "#",
+      "Modern web app with secure auth, advanced filtering and search, and a custom matching algorithm. Built with feature-based architecture, atomic state via Zustand, and modern React patterns like custom hooks and conditional styling, using Next.js, clsx, tailwind-merge, and TypeScript.",
+    technologies: ["Next.js", "TypeScript", "Zustand", "Tailwind", "clsx", "tailwind-merge"],
+    image: "/img/dogAdopt.png",
+    link: "https://alex-tapia-fetch.netlify.app/",
+    github: "https://github.com/atapia27/Fetch-frontend-take-home",
     featured: true,
   },
   {
-    id: "neural-dashboard",
-    title: "Neural Dashboard",
+    id: "edtech-social-app",
+    title: "EdTech Video Social Media App",
     description:
-      "Real-time data visualization system that adapts to user attention patterns and information processing preferences.",
-    technologies: ["D3.js", "WebGL", "Python", "Machine Learning"],
-    image: "/api/placeholder/400/300",
-    link: "#",
-    github: "#",
+      "Full Stack social media app featuring video uploads, feed browsing, topic filtering, user profiles, and real-time commenting",
+    technologies: ["Next.js", "Zustand", "Tailwind", "FastAPI", "Python", "SQLAlchemy"],
+    image: "/img/SocialApp.png",
+    link: "https://social-app-video-atapia.netlify.app/",
+    github: "https://github.com/atapia27/Social-Application",
     featured: true,
   },
   {
-    id: "decision-engine",
-    title: "Decision Support Engine",
+    id: "studyhub",
+    title: "StudyHub",
     description:
-      "Backend system that processes complex data and presents it in ways that align with human decision-making patterns.",
-    technologies: ["Node.js", "PostgreSQL", "GraphQL", "UX Research"],
-    image: "/api/placeholder/400/300",
-    link: "#",
-    github: "#",
+      "Study tool providing customizable music, ambient sounds, and themes, enhancing productivity and focus for users during study sessions",
+    technologies: ["React", "TypeScript", "Tailwind", "MobX", "Vitest"],
+    image: "/img/StudyHub.png",
+    link: "https://studyhub-alejandro-tapia.netlify.app/",
+    github: "https://github.com/atapia27/studyHub",
+    featured: true,
+  },
+  {
+    id: "chat-application",
+    title: "Chat Application",
+    description:
+      "Web messaging platform with login functionality, conversation history tracking, text & image functionality, and profile customization using React, Firebase, JavaScript, and TypeScript",
+    technologies: ["React", "Firebase", "JavaScript", "TypeScript", "Python"],
+    image: "/img/Chat.png",
+    link: "https://chat-application-alejandro-tapia.netlify.app",
+    github: "https://github.com/atapia27/Alejandro_Tapia_ChatApplication",
     featured: false,
   },
   {
-    id: "attention-tracker",
-    title: "Attention Tracking System",
+    id: "stock-predictor",
+    title: "Stock Predictor",
     description:
-      "Research tool for studying how users process information under different conditions and stress levels.",
-    technologies: ["React", "WebRTC", "Python", "Cognitive Psychology"],
-    image: "/api/placeholder/400/300",
-    link: "#",
-    github: "#",
+      "Web application allowing users to search for company relevant stock information, predicting future trends, and generating forecast plots components for up to 4 years",
+    technologies: ["Python", "TensorFlow", "Prophet API"],
+    image: "/img/Stock.png",
+    link: "https://stockpredictor.streamlit.app/",
+    github: "https://github.com/atapia27/Stock-Predictor",
     featured: false,
   },
   {
-    id: "interaction-library",
-    title: "Interaction Pattern Library",
+    id: "personal-website",
+    title: "Personal Website (Legacy)",
     description:
-      "Component library built with cognitive science principles, ensuring consistent and intuitive user experiences.",
-    technologies: ["React", "Storybook", "TypeScript", "Design Systems"],
-    image: "/api/placeholder/400/300",
-    link: "#",
-    github: "#",
-    featured: false,
-  },
-  {
-    id: "complexity-reducer",
-    title: "Complexity Reduction Tool",
-    description:
-      "AI-powered system that simplifies complex interfaces based on user behavior and cognitive load analysis.",
-    technologies: ["TensorFlow", "React", "Python", "User Research"],
-    image: "/api/placeholder/400/300",
-    link: "#",
-    github: "#",
+      "My previous personal website built with Vue.js. This was my first portfolio showcasing skills and projects. Currently archived as I've moved to this new React-based portfolio.",
+    technologies: ["Vue", "Tailwind", "JavaScript"],
+    image: "/img/Portfolio.png",
+    link: undefined,
+    github: "https://github.com/atapia27/atapia27.github.io",
     featured: false,
   },
 ];
@@ -78,36 +75,49 @@ const projects: Project[] = [
 export function ProjectsSection() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [filter, setFilter] = useState<
-    "all" | "featured" | "cognitive" | "technical"
+    "all" | "featured" | "frontend" | "backend"
   >("all");
 
   const filteredProjects = projects.filter((project) => {
     if (filter === "all") return true;
     if (filter === "featured") return project.featured;
-    if (filter === "cognitive")
+    if (filter === "frontend")
       return (
-        project.technologies.includes("Cognitive Science") ||
-        project.technologies.includes("Cognitive Psychology")
+        project.technologies.includes("React") ||
+        project.technologies.includes("Next.js") ||
+        project.technologies.includes("Vue") ||
+        project.technologies.includes("TypeScript") ||
+        project.technologies.includes("JavaScript")
       );
-    if (filter === "technical")
+    if (filter === "backend")
       return (
-        !project.technologies.includes("Cognitive Science") &&
-        !project.technologies.includes("Cognitive Psychology")
+        project.technologies.includes("Python") ||
+        project.technologies.includes("FastAPI") ||
+        project.technologies.includes("SQLAlchemy") ||
+        project.technologies.includes("Firebase") ||
+        project.technologies.includes("TensorFlow")
       );
     return true;
   });
 
   return (
-    <section id="projects" className="section-container py-20">
-      <div className="max-w-7xl mx-auto px-6">
+    <section
+      id="projects"
+      className="section-container py-20 relative overflow-hidden bg-cover bg-center bg-no-repeat bg-fixed"
+      style={{ backgroundImage: "url('/background.gif')" }}
+    >
+      {/* Enhanced overlay with gradient */}
+      <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/50 to-black/70 backdrop-blur-sm"></div>
+
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-5xl font-bold mb-6">
             <span className="gradient-text">Projects</span> & Research
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            Exploring the intersection of cognitive science and technology
-            through practical applications and research projects.
+            A collection of full-stack applications, tools, and projects showcasing
+            modern web development, AI/ML integration, and user-focused design.
           </p>
         </div>
 
@@ -115,10 +125,10 @@ export function ProjectsSection() {
         <div className="flex justify-center mb-12">
           <div className="flex space-x-1 bg-gray-900/50 rounded-lg p-1">
             {[
-              { id: "all", label: "All Projects" },
               { id: "featured", label: "Featured" },
-              { id: "cognitive", label: "Cognitive Science" },
-              { id: "technical", label: "Technical" },
+              { id: "frontend", label: "Frontend" },
+              { id: "backend", label: "Backend" },
+              { id: "all", label: "All Projects" },
             ].map((tab) => (
               <button
                 key={tab.id}
@@ -148,29 +158,7 @@ export function ProjectsSection() {
           ))}
         </div>
 
-        {/* 3D Visualization */}
-        <div className="h-[500px] relative">
-          <Canvas
-            camera={{ position: [0, 0, 5], fov: 75 }}
-            className="bg-transparent"
-          >
-            <ambientLight intensity={0.3} />
-            <pointLight position={[10, 10, 10]} intensity={0.8} />
-            <pointLight position={[-10, -10, -10]} intensity={0.3} />
 
-            <ProjectVisualization
-              selectedProject={selectedProject}
-              projects={filteredProjects}
-            />
-
-            <OrbitControls
-              enableZoom={false}
-              enablePan={false}
-              autoRotate
-              autoRotateSpeed={0.3}
-            />
-          </Canvas>
-        </div>
 
         {/* Project Details Modal */}
         {selectedProject && (
@@ -187,6 +175,30 @@ export function ProjectsSection() {
                   ×
                 </button>
               </div>
+
+              {/* Project Image */}
+              {selectedProject.image && (
+                <div className="mb-6">
+                  <div className="w-full rounded-lg overflow-hidden bg-gradient-to-br from-neural-500/20 to-synaptic-500/20">
+                    <img
+                      src={selectedProject.image}
+                      alt={selectedProject.title}
+                      className="w-full object-contain max-h-96"
+                      onError={(e) => {
+                        // Fallback to placeholder if image fails to load
+                        const target = e.target as HTMLImageElement;
+                        target.style.display = 'none';
+                        target.nextElementSibling?.classList.remove('hidden');
+                      }}
+                    />
+                    <div className="w-full h-64 flex items-center justify-center hidden">
+                      <div className="text-4xl opacity-50">
+                        {selectedProject.featured ? "⭐" : "💻"}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
 
               <p className="text-gray-300 mb-6 leading-relaxed">
                 {selectedProject.description}
