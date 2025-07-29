@@ -20,7 +20,7 @@ export function Navigation() {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 p-4 bg-black/20 backdrop-blur-md border-b border-white/10 shadow-lg">
-      <div className="max-w-7xl mx-auto flex justify-between items-center">
+      <div className="px-[5%] flex justify-between items-center">
         <div className="text-2xl font-bold gradient-text">Alex's Portfolio</div>
 
         <div className="flex space-x-8">

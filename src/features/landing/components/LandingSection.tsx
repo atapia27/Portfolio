@@ -9,7 +9,7 @@ export function LandingSection() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowTypewriter(true);
-    }, 4000);
+    }, 3500);
 
     return () => clearTimeout(timer);
   }, []);
@@ -69,7 +69,7 @@ export function LandingSection() {
                   wrapper="div"
                   cursor={true}
                   repeat={0}
-                  speed={75}
+                  speed={70}
                   className="text-white text-sm md:text-2xl tracking-widest font-normal whitespace-pre drop-shadow-xl"
                   style={{
                     fontFamily: "'Adventure Time', sans-serif",

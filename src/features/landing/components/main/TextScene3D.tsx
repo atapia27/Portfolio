@@ -17,7 +17,7 @@ export function TextScene3D() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setAnimationStartTime(clock.elapsedTime);
-    }, 2.5 * 1000); // 2.5s delay
+    }, 1.5 * 1000); // 2.5s delay
     return () => clearTimeout(timer);
   }, [clock]);
 
@@ -31,7 +31,7 @@ export function TextScene3D() {
 
     // Single phase: fast clockwise spin with scale from 1/10 to full size
     const spinSpeed = Math.pow(progress, 0.3); // Exponential speed
-    const newRotation = -spinSpeed * Math.PI * 12; // Negative for clockwise, 3 full rotations
+    const newRotation = -spinSpeed * Math.PI * 8; // Negative for clockwise, 3 full rotations
 
     // Scale calculation: 0-50% size from 0-90% of animation, then grow to full size
     let newScale;
