@@ -40,11 +40,11 @@ export function LandingSection() {
       {/* 3D Background with Animated Text */}
       <Background3D />
       
-            {/* Description Overlay - Fixed position, not affected by 3D rotation */}
-      <div className="absolute inset-0 z-10 flex flex-col items-center justify-start pt-[50vh] pointer-events-none">
-        <div className="text-center">
+      {/* Description Overlay - Fixed position, not affected by 3D rotation */}
+      <div className="absolute inset-0 z-10 flex flex-col items-center justify-start pt-[50vh] pointer-events-none px-4">
+        <div className="text-center w-full max-w-2xl">
           {showTypewriter && (
-            <div className="bg-black/30 backdrop-blur-sm rounded-lg px-4 py-3 inline-block max-w-2xl">
+            <div className="bg-black/30 backdrop-blur-sm rounded-lg px-3 py-2 sm:px-4 sm:py-3 inline-block w-full sm:w-auto">
                 <TypeAnimation
                   sequence={[
                     "Hello, World!",
@@ -77,14 +77,14 @@ export function LandingSection() {
                   cursor={true}
                   repeat={0}
                   speed={70}
-                  className="text-white text-sm md:text-2xl tracking-widest font-normal whitespace-pre drop-shadow-xl font-adventure"
+                  className="text-white text-xs sm:text-sm md:text-2xl tracking-wider sm:tracking-widest font-normal whitespace-pre drop-shadow-xl font-adventure leading-relaxed"
                 />
               </div>
             )}
         </div>
       </div>
       {/* Bottom Content - Fixed to bottom */}
-      <div className="absolute bottom-24 left-0 right-0 z-20 flex flex-col items-center">
+      <div className="absolute bottom-16 sm:bottom-24 left-0 right-0 z-20 flex flex-col items-center px-4">
         <ExploreButton showButton={showButton} />
       </div>
     </section>

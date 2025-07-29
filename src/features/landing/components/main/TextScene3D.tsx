@@ -11,7 +11,36 @@ export function TextScene3D() {
     null,
   );
   const [bounceAnimation, setBounceAnimation] = useState(false);
+  const [fontSize, setFontSize] = useState(1.25);
+  const [textSpacing, setTextSpacing] = useState(0.625);
   const { clock } = useThree();
+
+  // Calculate responsive font size and spacing based on screen width
+  useEffect(() => {
+    const updateResponsiveValues = () => {
+      const width = window.innerWidth;
+      if (width < 640) { // sm breakpoint
+        setFontSize(0.4); // Much smaller on mobile
+        setTextSpacing(0.2); // Much closer spacing on mobile
+      } else if (width < 768) { // md breakpoint
+        setFontSize(0.6);
+        setTextSpacing(0.3);
+      } else if (width < 1024) { // lg breakpoint
+        setFontSize(0.8);
+        setTextSpacing(0.4);
+      } else if (width < 1280) { // xl breakpoint
+        setFontSize(1.0);
+        setTextSpacing(0.5);
+      } else {
+        setFontSize(1.25); // Original size for large screens
+        setTextSpacing(0.625); // Original spacing
+      }
+    };
+
+    updateResponsiveValues();
+    window.addEventListener('resize', updateResponsiveValues);
+    return () => window.removeEventListener('resize', updateResponsiveValues);
+  }, []);
 
   // Start animation after delay
   useEffect(() => {
@@ -85,8 +114,8 @@ export function TextScene3D() {
       {/* Title - Cognitive */}
       <AnimatedText3D
         text="Cognitive"
-        position={[0, 0.625, 0]} // Half the distance above center
-        fontSize={1.25}
+        position={[0, textSpacing, 0]} // Responsive spacing above center
+        fontSize={fontSize}
         color="#ff6b6b"
         delay={0}
         duration={1}
@@ -97,8 +126,8 @@ export function TextScene3D() {
       {/* Title - Engineering */}
       <AnimatedText3D
         text="Engineering"
-        position={[0, -0.625, 0]} // Half the distance below center
-        fontSize={1.25}
+        position={[0, -textSpacing, 0]} // Responsive spacing below center
+        fontSize={fontSize}
         color="#ff6b6b"
         delay={0}
         duration={1}
