@@ -1,30 +1,28 @@
-import { useScrollContext } from '../context/ScrollContext'
-import { cn } from '../utils/cn'
+import { useScrollContext } from "../context/ScrollContext";
+import { cn } from "../utils/cn";
 
 const navItems = [
-  { id: 'landing', label: 'Home' },
-  { id: 'about', label: 'About' },
-  { id: 'projects', label: 'Projects' }
-]
+  { id: "landing", label: "Home" },
+  { id: "about", label: "About" },
+  { id: "projects", label: "Projects" },
+];
 
 export function Navigation() {
-  const { currentSection, setCurrentSection } = useScrollContext()
+  const { currentSection, setCurrentSection } = useScrollContext();
 
   const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId)
+    const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
-      setCurrentSection(sectionId)
+      element.scrollIntoView({ behavior: "smooth" });
+      setCurrentSection(sectionId);
     }
-  }
+  };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 p-6 bg-black/20 backdrop-blur-md border-b border-white/10 shadow-lg">
+    <nav className="fixed top-0 left-0 right-0 z-50 p-4 bg-black/20 backdrop-blur-md border-b border-white/10 shadow-lg">
       <div className="max-w-7xl mx-auto flex justify-between items-center">
-        <div className="text-2xl font-bold gradient-text">
-          Cognitive CS
-        </div>
-        
+        <div className="text-2xl font-bold gradient-text">Alex's Portfolio</div>
+
         <div className="flex space-x-8">
           {navItems.map((item) => (
             <button
@@ -35,7 +33,7 @@ export function Navigation() {
                 "hover:text-neural-400 focus:outline-none focus:ring-2 focus:ring-neural-400 focus:ring-offset-2 focus:ring-offset-black",
                 currentSection === item.id
                   ? "text-neural-400"
-                  : "text-gray-300 hover:text-neural-400"
+                  : "text-gray-300 hover:text-neural-400",
               )}
             >
               {item.label}
@@ -47,5 +45,5 @@ export function Navigation() {
         </div>
       </div>
     </nav>
-  )
-} 
+  );
+}

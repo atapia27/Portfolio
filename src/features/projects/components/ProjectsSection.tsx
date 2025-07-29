@@ -1,85 +1,101 @@
-import { useState } from 'react'
-import { Canvas } from '@react-three/fiber'
-import { OrbitControls } from '@react-three/drei'
-import { ProjectCard } from './ProjectCard'
-import { ProjectVisualization } from './ProjectVisualization'
-import { cn } from '../../../shared/utils/cn'
-import type { Project } from '../../../shared/types'
+import { useState } from "react";
+import { Canvas } from "@react-three/fiber";
+import { OrbitControls } from "@react-three/drei";
+import { ProjectCard } from "./ProjectCard";
+import { ProjectVisualization } from "./ProjectVisualization";
+import { cn } from "../../../shared/utils/cn";
+import type { Project } from "../../../shared/types";
 
 const projects: Project[] = [
   {
-    id: 'cognitive-interface',
-    title: 'Cognitive Interface System',
-    description: 'A user interface designed around human attention patterns and decision-making processes. Reduces cognitive load by 40% in complex workflows.',
-    technologies: ['React', 'TypeScript', 'Three.js', 'Cognitive Science'],
-    image: '/api/placeholder/400/300',
-    link: '#',
-    github: '#',
-    featured: true
+    id: "cognitive-interface",
+    title: "Cognitive Interface System",
+    description:
+      "A user interface designed around human attention patterns and decision-making processes. Reduces cognitive load by 40% in complex workflows.",
+    technologies: ["React", "TypeScript", "Three.js", "Cognitive Science"],
+    image: "/api/placeholder/400/300",
+    link: "#",
+    github: "#",
+    featured: true,
   },
   {
-    id: 'neural-dashboard',
-    title: 'Neural Dashboard',
-    description: 'Real-time data visualization system that adapts to user attention patterns and information processing preferences.',
-    technologies: ['D3.js', 'WebGL', 'Python', 'Machine Learning'],
-    image: '/api/placeholder/400/300',
-    link: '#',
-    github: '#',
-    featured: true
+    id: "neural-dashboard",
+    title: "Neural Dashboard",
+    description:
+      "Real-time data visualization system that adapts to user attention patterns and information processing preferences.",
+    technologies: ["D3.js", "WebGL", "Python", "Machine Learning"],
+    image: "/api/placeholder/400/300",
+    link: "#",
+    github: "#",
+    featured: true,
   },
   {
-    id: 'decision-engine',
-    title: 'Decision Support Engine',
-    description: 'Backend system that processes complex data and presents it in ways that align with human decision-making patterns.',
-    technologies: ['Node.js', 'PostgreSQL', 'GraphQL', 'UX Research'],
-    image: '/api/placeholder/400/300',
-    link: '#',
-    github: '#',
-    featured: false
+    id: "decision-engine",
+    title: "Decision Support Engine",
+    description:
+      "Backend system that processes complex data and presents it in ways that align with human decision-making patterns.",
+    technologies: ["Node.js", "PostgreSQL", "GraphQL", "UX Research"],
+    image: "/api/placeholder/400/300",
+    link: "#",
+    github: "#",
+    featured: false,
   },
   {
-    id: 'attention-tracker',
-    title: 'Attention Tracking System',
-    description: 'Research tool for studying how users process information under different conditions and stress levels.',
-    technologies: ['React', 'WebRTC', 'Python', 'Cognitive Psychology'],
-    image: '/api/placeholder/400/300',
-    link: '#',
-    github: '#',
-    featured: false
+    id: "attention-tracker",
+    title: "Attention Tracking System",
+    description:
+      "Research tool for studying how users process information under different conditions and stress levels.",
+    technologies: ["React", "WebRTC", "Python", "Cognitive Psychology"],
+    image: "/api/placeholder/400/300",
+    link: "#",
+    github: "#",
+    featured: false,
   },
   {
-    id: 'interaction-library',
-    title: 'Interaction Pattern Library',
-    description: 'Component library built with cognitive science principles, ensuring consistent and intuitive user experiences.',
-    technologies: ['React', 'Storybook', 'TypeScript', 'Design Systems'],
-    image: '/api/placeholder/400/300',
-    link: '#',
-    github: '#',
-    featured: false
+    id: "interaction-library",
+    title: "Interaction Pattern Library",
+    description:
+      "Component library built with cognitive science principles, ensuring consistent and intuitive user experiences.",
+    technologies: ["React", "Storybook", "TypeScript", "Design Systems"],
+    image: "/api/placeholder/400/300",
+    link: "#",
+    github: "#",
+    featured: false,
   },
   {
-    id: 'complexity-reducer',
-    title: 'Complexity Reduction Tool',
-    description: 'AI-powered system that simplifies complex interfaces based on user behavior and cognitive load analysis.',
-    technologies: ['TensorFlow', 'React', 'Python', 'User Research'],
-    image: '/api/placeholder/400/300',
-    link: '#',
-    github: '#',
-    featured: false
-  }
-]
+    id: "complexity-reducer",
+    title: "Complexity Reduction Tool",
+    description:
+      "AI-powered system that simplifies complex interfaces based on user behavior and cognitive load analysis.",
+    technologies: ["TensorFlow", "React", "Python", "User Research"],
+    image: "/api/placeholder/400/300",
+    link: "#",
+    github: "#",
+    featured: false,
+  },
+];
 
 export function ProjectsSection() {
-  const [selectedProject, setSelectedProject] = useState<Project | null>(null)
-  const [filter, setFilter] = useState<'all' | 'featured' | 'cognitive' | 'technical'>('all')
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [filter, setFilter] = useState<
+    "all" | "featured" | "cognitive" | "technical"
+  >("all");
 
-  const filteredProjects = projects.filter(project => {
-    if (filter === 'all') return true
-    if (filter === 'featured') return project.featured
-    if (filter === 'cognitive') return project.technologies.includes('Cognitive Science') || project.technologies.includes('Cognitive Psychology')
-    if (filter === 'technical') return !project.technologies.includes('Cognitive Science') && !project.technologies.includes('Cognitive Psychology')
-    return true
-  })
+  const filteredProjects = projects.filter((project) => {
+    if (filter === "all") return true;
+    if (filter === "featured") return project.featured;
+    if (filter === "cognitive")
+      return (
+        project.technologies.includes("Cognitive Science") ||
+        project.technologies.includes("Cognitive Psychology")
+      );
+    if (filter === "technical")
+      return (
+        !project.technologies.includes("Cognitive Science") &&
+        !project.technologies.includes("Cognitive Psychology")
+      );
+    return true;
+  });
 
   return (
     <section id="projects" className="section-container py-20">
@@ -90,8 +106,8 @@ export function ProjectsSection() {
             <span className="gradient-text">Projects</span> & Research
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            Exploring the intersection of cognitive science and technology through 
-            practical applications and research projects.
+            Exploring the intersection of cognitive science and technology
+            through practical applications and research projects.
           </p>
         </div>
 
@@ -99,10 +115,10 @@ export function ProjectsSection() {
         <div className="flex justify-center mb-12">
           <div className="flex space-x-1 bg-gray-900/50 rounded-lg p-1">
             {[
-              { id: 'all', label: 'All Projects' },
-              { id: 'featured', label: 'Featured' },
-              { id: 'cognitive', label: 'Cognitive Science' },
-              { id: 'technical', label: 'Technical' }
+              { id: "all", label: "All Projects" },
+              { id: "featured", label: "Featured" },
+              { id: "cognitive", label: "Cognitive Science" },
+              { id: "technical", label: "Technical" },
             ].map((tab) => (
               <button
                 key={tab.id}
@@ -111,7 +127,7 @@ export function ProjectsSection() {
                   "px-6 py-3 rounded-md text-sm font-medium transition-all duration-300",
                   filter === tab.id
                     ? "bg-neural-500 text-white shadow-lg"
-                    : "text-gray-400 hover:text-white hover:bg-gray-800/50"
+                    : "text-gray-400 hover:text-white hover:bg-gray-800/50",
                 )}
               >
                 {tab.label}
@@ -136,18 +152,18 @@ export function ProjectsSection() {
         <div className="h-[500px] relative">
           <Canvas
             camera={{ position: [0, 0, 5], fov: 75 }}
-            style={{ background: 'transparent' }}
+            style={{ background: "transparent" }}
           >
             <ambientLight intensity={0.3} />
             <pointLight position={[10, 10, 10]} intensity={0.8} />
             <pointLight position={[-10, -10, -10]} intensity={0.3} />
-            
-            <ProjectVisualization 
+
+            <ProjectVisualization
               selectedProject={selectedProject}
               projects={filteredProjects}
             />
-            
-            <OrbitControls 
+
+            <OrbitControls
               enableZoom={false}
               enablePan={false}
               autoRotate
@@ -161,7 +177,9 @@ export function ProjectsSection() {
           <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-6">
             <div className="glass-effect rounded-xl p-8 max-w-2xl w-full max-h-[80vh] overflow-y-auto">
               <div className="flex justify-between items-start mb-6">
-                <h3 className="text-2xl font-bold text-white">{selectedProject.title}</h3>
+                <h3 className="text-2xl font-bold text-white">
+                  {selectedProject.title}
+                </h3>
                 <button
                   onClick={() => setSelectedProject(null)}
                   className="text-gray-400 hover:text-white text-2xl"
@@ -169,13 +187,15 @@ export function ProjectsSection() {
                   ×
                 </button>
               </div>
-              
+
               <p className="text-gray-300 mb-6 leading-relaxed">
                 {selectedProject.description}
               </p>
-              
+
               <div className="mb-6">
-                <h4 className="text-lg font-semibold text-neural-400 mb-3">Technologies</h4>
+                <h4 className="text-lg font-semibold text-neural-400 mb-3">
+                  Technologies
+                </h4>
                 <div className="flex flex-wrap gap-2">
                   {selectedProject.technologies.map((tech) => (
                     <span
@@ -187,7 +207,7 @@ export function ProjectsSection() {
                   ))}
                 </div>
               </div>
-              
+
               <div className="flex space-x-4">
                 {selectedProject.link && (
                   <a
@@ -211,5 +231,5 @@ export function ProjectsSection() {
         )}
       </div>
     </section>
-  )
-} 
+  );
+}

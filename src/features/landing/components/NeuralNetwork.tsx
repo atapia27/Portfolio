@@ -1,16 +1,16 @@
-import { useRef } from 'react'
-import { useFrame } from '@react-three/fiber'
-import { Line, Sphere } from '@react-three/drei'
-import * as THREE from 'three'
+import { useRef } from "react";
+import { useFrame } from "@react-three/fiber";
+import { Line, Sphere } from "@react-three/drei";
+import * as THREE from "three";
 
 export function NeuralNetwork() {
-  const groupRef = useRef<THREE.Group>(null)
+  const groupRef = useRef<THREE.Group>(null);
 
   useFrame((state) => {
     if (groupRef.current) {
-      groupRef.current.rotation.z = state.clock.elapsedTime * 0.1
+      groupRef.current.rotation.z = state.clock.elapsedTime * 0.1;
     }
-  })
+  });
 
   // Simplified network structure
   const nodes = [
@@ -21,7 +21,7 @@ export function NeuralNetwork() {
     { position: [1.5, -1, 0] as [number, number, number], color: "#d946ef" },
     { position: [0, 2, 0] as [number, number, number], color: "#eab308" },
     { position: [0, -2, 0] as [number, number, number], color: "#eab308" },
-  ]
+  ];
 
   const connections = [
     { start: nodes[0].position, end: nodes[1].position },
@@ -32,17 +32,13 @@ export function NeuralNetwork() {
     { start: nodes[0].position, end: nodes[6].position },
     { start: nodes[1].position, end: nodes[2].position },
     { start: nodes[3].position, end: nodes[4].position },
-  ]
+  ];
 
   return (
     <group ref={groupRef} position={[0, 0, -2]}>
       {/* Nodes */}
       {nodes.map((node, i) => (
-        <Sphere
-          key={i}
-          args={[0.12, 16, 16]}
-          position={node.position}
-        >
+        <Sphere key={i} args={[0.12, 16, 16]} position={node.position}>
           <meshStandardMaterial
             color={node.color}
             emissive={node.color}
@@ -63,5 +59,5 @@ export function NeuralNetwork() {
         />
       ))}
     </group>
-  )
-} 
+  );
+}

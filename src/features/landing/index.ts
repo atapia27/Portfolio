@@ -1,1 +1,1 @@
-export { LandingSection } from './components/LandingSection' 
+export { LandingSection } from "./components/LandingSection";

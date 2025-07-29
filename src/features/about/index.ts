@@ -1,1 +1,1 @@
-export { AboutSection } from './components/AboutSection' 
+export { AboutSection } from "./components/AboutSection";

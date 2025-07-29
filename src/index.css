@@ -3,15 +3,15 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: 'Adventure Time';
-  src: url('/Adventure Time/adventuretime.ttf') format('truetype');
+  font-family: "Adventure Time";
+  src: url("/Adventure Time/adventuretime.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'Paikoj';
-  src: url('/Adventure Time/paikoj.ttf') format('truetype');
+  font-family: "Paikoj";
+  src: url("/Adventure Time/paikoj.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
@@ -20,7 +20,7 @@
   html {
     scroll-behavior: smooth;
   }
-  
+
   body {
     @apply bg-black text-white font-sans;
     overflow-x: hidden;
@@ -31,23 +31,23 @@
   .section-container {
     @apply min-h-screen w-full relative;
   }
-  
+
   .gradient-text {
     @apply bg-gradient-to-r from-neural-400 via-synaptic-400 to-cognitive-400 bg-clip-text text-transparent;
   }
-  
+
   .glass-effect {
     @apply backdrop-blur-md bg-white/10 border border-white/20;
   }
-  
+
   .neural-glow {
     box-shadow: 0 0 30px rgba(14, 165, 233, 0.3);
   }
-  
+
   .synaptic-glow {
     box-shadow: 0 0 30px rgba(217, 70, 239, 0.3);
   }
-  
+
   .gif-play-once {
     animation: playOnce 3s forwards;
   }
@@ -57,22 +57,45 @@
   .animate-spin-slow {
     animation: spin 3s linear infinite;
   }
-  
+
   .animate-fade-in {
     animation: fadeIn 2s ease-out forwards;
   }
-  
+
   .animate-spin-and-fade-in {
     animation: spinAndFadeIn 1s linear forwards;
   }
+
+  .animate-description-fade-in {
+    animation: descriptionFadeIn 1s ease-out forwards;
+  }
+
+  .animate-typewriter {
+    animation: typewriter 2s steps(40, end) forwards;
+  }
+
+  .animate-typewriter-delayed {
+    animation: typewriter 2.5s steps(50, end) forwards;
+  }
+
+  .typewriter-cursor {
+    display: inline-block;
+    width: 2px;
+    height: 1.2em;
+    background-color: white;
+    margin-left: 2px;
+    animation: blink 1s infinite;
+  }
+
+
 }
 
 @keyframes playOnce {
   0% {
-    background-image: url('/adventureTime.gif');
+    background-image: url("/adventureTime.gif");
   }
   100% {
-    background-image: url('/adventureTime.gif');
+    background-image: url("/adventureTime.gif");
   }
 }
 
@@ -127,4 +150,38 @@
   to {
     opacity: 1;
   }
-} 
+}
+
+@keyframes descriptionFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes typewriter {
+  0% {
+    clip-path: inset(0 100% 0 0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    clip-path: inset(0 0% 0 0);
+    opacity: 1;
+  }
+}
+
+@keyframes blink {
+  0%, 50% {
+    opacity: 1;
+  }
+  51%, 100% {
+    opacity: 0;
+  }
+}
