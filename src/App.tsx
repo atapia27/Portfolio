@@ -35,6 +35,11 @@ function App() {
     };
 
     const handleWheel = (e: WheelEvent) => {
+      // Check if we're on mobile - if so, allow normal scrolling
+      if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
+        return;
+      }
+      
       // Check if hovering over scrollable areas
       const target = e.target as HTMLElement;
       const isOverScrollable = target.closest('.custom-scrollbar') !== null;
@@ -105,16 +110,51 @@ function App() {
     window.addEventListener("wheel", handleWheel, { passive: false });
     window.addEventListener("scroll", handleScroll);
     
+    // Add touch event handling for mobile
+    let touchStartY = 0;
+    let touchEndY = 0;
+    
+    const handleTouchStart = (e: TouchEvent) => {
+      touchStartY = e.touches[0].clientY;
+    };
+    
+    const handleTouchEnd = (e: TouchEvent) => {
+      touchEndY = e.changedTouches[0].clientY;
+      const touchDiff = touchStartY - touchEndY;
+      
+      // Only handle significant touch gestures (more than 50px)
+      if (Math.abs(touchDiff) > 50) {
+        const direction = touchDiff > 0 ? 1 : -1;
+        const sections = ["landing", "about", "projects"];
+        const currentIndex = sections.indexOf(currentSection);
+        const nextIndex = Math.max(0, Math.min(sections.length - 1, currentIndex + direction));
+        const nextSection = sections[nextIndex];
+        
+        if (nextSection !== currentSection) {
+          setCurrentSection(nextSection);
+          const element = document.getElementById(nextSection);
+          if (element) {
+            element.scrollIntoView({ behavior: "smooth" });
+          }
+        }
+      }
+    };
+    
+    window.addEventListener("touchstart", handleTouchStart, { passive: true });
+    window.addEventListener("touchend", handleTouchEnd, { passive: true });
+    
     return () => {
       window.removeEventListener("wheel", handleWheel);
       window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("touchstart", handleTouchStart);
+      window.removeEventListener("touchend", handleTouchEnd);
       clearTimeout(scrollTimeout);
     };
   }, [currentSection]);
 
   return (
     <ScrollContext.Provider value={{ currentSection, setCurrentSection }}>
-      <div className="flex flex-col">
+      <div className="flex flex-col min-h-screen">
         <Navigation />
 
         <main className="flex flex-col z-10">

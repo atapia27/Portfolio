@@ -19,11 +19,15 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch; /* Enable momentum scrolling on iOS */
   }
 
   body {
     @apply bg-black text-white font-sans;
     overflow-x: hidden;
+    /* Ensure body is scrollable on mobile */
+    min-height: 100vh;
+    position: relative;
   }
 
   /* Global scrollbar styling to match custom-scrollbar */
@@ -44,11 +48,27 @@
   body::-webkit-scrollbar-thumb:hover {
     background: rgba(110, 93, 148, 0.7);
   }
+  
+  /* Mobile-specific styles */
+  @media (max-width: 768px) {
+    body {
+      -webkit-overflow-scrolling: touch;
+      overflow-x: hidden;
+      overflow-y: auto;
+    }
+    
+    html {
+      -webkit-overflow-scrolling: touch;
+    }
+  }
 }
 
 @layer components {
   .section-container {
     @apply min-h-screen w-full relative;
+    /* Ensure sections are properly sized for mobile */
+    min-height: 100vh;
+    min-height: 100dvh; /* Dynamic viewport height for mobile */
   }
 
   .gradient-text {

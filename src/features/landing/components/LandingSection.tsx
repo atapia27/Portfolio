@@ -25,7 +25,7 @@ export function LandingSection() {
   return (
     <section
       id="landing"
-      className="section-container flex flex-col items-center justify-center relative overflow-hidden"
+      className="section-container flex flex-col items-center justify-center relative overflow-hidden min-h-screen"
     >
       {/* Background Video */}
       <video
