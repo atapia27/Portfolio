@@ -1,5 +1,3 @@
-import { cn } from "../../../../shared/utils/cn";
-
 export function HeroDescription() {
   return (
     <div

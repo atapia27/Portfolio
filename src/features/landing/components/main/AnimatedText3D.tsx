@@ -1,5 +1,4 @@
 import { useRef, useEffect, useState, useMemo } from "react";
-import { useFrame, useThree } from "@react-three/fiber";
 import * as THREE from "three";
 import { FontLoader } from "three/examples/jsm/loaders/FontLoader.js";
 import { TextGeometry } from "three/examples/jsm/geometries/TextGeometry.js";
@@ -9,8 +8,6 @@ interface AnimatedText3DProps {
   position: [number, number, number];
   fontSize?: number;
   color?: string;
-  delay?: number;
-  duration?: number;
   isTitle?: boolean;
   opacity?: number;
 }
@@ -20,15 +17,11 @@ export function AnimatedText3D({
   position,
   fontSize = 0.5,
   color = "#ff6b6b", // portfolio-coral equivalent
-  delay = 0,
-  duration = 1,
   isTitle = false,
   opacity = 1,
 }: AnimatedText3DProps) {
   const groupRef = useRef<THREE.Group>(null);
-  const [textProgress, setTextProgress] = useState(0);
   const [font, setFont] = useState<any>(null);
-  const { clock } = useThree();
   const shadeColor = "#4C2020";
 
   // Load the Adventure Time font

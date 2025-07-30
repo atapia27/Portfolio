@@ -117,8 +117,6 @@ export function TextScene3D() {
         position={[0, textSpacing, 0]} // Responsive spacing above center
         fontSize={fontSize}
         color="#ff6b6b"
-        delay={0}
-        duration={1}
         isTitle={true}
         opacity={opacity}
       />
@@ -129,8 +127,6 @@ export function TextScene3D() {
         position={[0, -textSpacing, 0]} // Responsive spacing below center
         fontSize={fontSize}
         color="#ff6b6b"
-        delay={0}
-        duration={1}
         isTitle={true}
         opacity={opacity}
       />

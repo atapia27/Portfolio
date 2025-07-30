@@ -11,8 +11,7 @@ function App() {
 
   useEffect(() => {
     let isScrolling = false;
-    let scrollTimeout: NodeJS.Timeout;
-    let isHoveringScrollable = false;
+    let scrollTimeout: ReturnType<typeof setTimeout>;
 
     const handleScroll = () => {
       if (isScrolling) return;
@@ -50,7 +49,6 @@ function App() {
       // Check if content overflows the viewport
       const currentSectionElement = document.getElementById(currentSection);
       if (currentSectionElement) {
-        const sectionRect = currentSectionElement.getBoundingClientRect();
         const sectionHeight = currentSectionElement.scrollHeight;
         const viewportHeight = window.innerHeight;
         
