@@ -2,7 +2,7 @@ import { useRef } from "react";
 import { useFrame } from "@react-three/fiber";
 import { Sphere, Torus } from "@react-three/drei";
 import * as THREE from "three";
-import type { Project } from "../../../shared/types";
+import type { Project } from "../data/projects";
 
 interface ProjectVisualizationProps {
   selectedProject: Project | null;

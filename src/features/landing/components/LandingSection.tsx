@@ -1,4 +1,4 @@
-import { KeyPrinciples, ExploreButton } from "./main";
+import { ExploreButton } from "./main";
 import { Background3D } from "./main/Background3D";
 import { TypeAnimation } from "react-type-animation";
 import { useState, useEffect } from "react";

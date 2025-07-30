@@ -1,5 +1,5 @@
 import { cn } from "../../../shared/utils/cn";
-import type { Project } from "../../../shared/types";
+import type { Project } from "../data/projects";
 
 interface ProjectCardProps {
   project: Project;
@@ -63,7 +63,7 @@ export function ProjectCard({
 
         {/* Technologies */}
         <div className="flex flex-wrap gap-1">
-          {project.technologies.slice(0, 3).map((tech) => (
+          {project.technologies.slice(0, 3).map((tech: string) => (
             <span
               key={tech}
               className="text-xs px-2 py-1 bg-neural-500/20 text-neural-300 rounded-full"
