@@ -74,3 +74,131 @@ Portfolio/
 └── package.json          # Dependencies and scripts
 
 ```
+
+Edit `src/features/projects/data/projects.ts` to add new projects:
+
+Edit `src/features/projects/data/projects.ts` to add new projects:
+
+```typescript
+{
+  id: "project-id",
+  title: "Project Title",
+  description: "Project description...",
+  technologies: ["React", "TypeScript"],
+  image: "/img/project-image.png",
+  link: "https://project-url.com",
+  github: "https://github.com/username/project",
+  featured: true
+}
+
+```
+
+### Updating Content
+
+- About Section: Edit `src/features/about/data/` files
+- Skills: Update `src/features/about/data/skills.ts`
+- Experience: Update `src/features/about/data/experiences.ts`
+
+## Configuration Files
+
+- `netlify.toml`: Netlify deployment configuration
+- `vite.config.ts`: Build optimization and chunk splitting
+- `tailwind.config.js`: Custom design system and colors
+- `tsconfig.json`: TypeScript configuration
+
+## Performance Optimizations
+
+- Code Splitting: Automatic chunk splitting for vendor libraries
+- Lazy Loading: Components loaded on demand
+- Image Optimization: Optimized images and lazy loading
+- Caching: Proper cache headers for static assets
+- Bundle Analysis: Optimized bundle sizes
+
+## SEO & Meta Tags
+
+The portfolio includes comprehensive SEO optimization:
+
+- Open Graph tags for social sharing
+- Twitter Card support
+- Proper meta descriptions and keywords
+- Structured data for better search visibility
+
+## License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## Contact
+
+- Portfolio: [alejandro-tapia-portfolio.netlify.app](https://alejandro-tapia-portfolio.netlify.app)
+- GitHub: [@atapia27](https://github.com/atapia27)
+- LinkedIn: [Alejandro Tapia](https://linkedin.com/in/alejandro-tapia)
+
+---
+
+Built with React, TypeScript, and Three.js
+
+```typescript
+{
+  id: "project-id",
+  title: "Project Title",
+  description: "Project description...",
+  technologies: ["React", "TypeScript"],
+  image: "/img/project-image.png",
+  link: "https://project-url.com",
+  github: "https://github.com/username/project",
+  featured: true
+}
+
+```
+
+### Updating Content
+
+- About Section: Edit `src/features/about/data/` files
+- Skills: Update `src/features/about/data/skills.ts`
+- Experience: Update `src/features/about/data/experiences.ts`
+
+## Configuration Files
+
+- `netlify.toml`: Netlify deployment configuration
+- `vite.config.ts`: Build optimization and chunk splitting
+- `tailwind.config.js`: Custom design system and colors
+- `tsconfig.json`: TypeScript configuration
+
+## Performance Optimizations
+
+- Code Splitting: Automatic chunk splitting for vendor libraries
+- Lazy Loading: Components loaded on demand
+- Image Optimization: Optimized images and lazy loading
+- Caching: Proper cache headers for static assets
+- Bundle Analysis: Optimized bundle sizes
+
+## SEO & Meta Tags
+
+The portfolio includes comprehensive SEO optimization:
+
+- Open Graph tags for social sharing
+- Twitter Card support
+- Proper meta descriptions and keywords
+- Structured data for better search visibility
+
+## License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## Contact
+
+- Portfolio: [alejandro-tapia-portfolio.netlify.app](https://alejandro-tapia-portfolio.netlify.app)
+- GitHub: [@atapia27](https://github.com/atapia27)
+- LinkedIn: [Alejandro Tapia](https://linkedin.com/in/alejandro-tapia)
+
+---
+
+Built with React, TypeScript, and Three.js
