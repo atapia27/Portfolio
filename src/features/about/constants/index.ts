@@ -1,10 +1,10 @@
 import { TabConfig, BackgroundCard } from "../types";
 
 export const TAB_CONFIGS: TabConfig[] = [
-  { id: "background", label: "Background", icon: "🎯" },
-  { id: "skills", label: "Skills", icon: "⚡" },
-  { id: "experience", label: "Experience", icon: "🚀" },
-  { id: "resume", label: "Resume", icon: "⬇️" }
+  { id: "background", label: "Background", icon: "" },
+  { id: "skills", label: "Skills", icon: "" },
+  { id: "experience", label: "Experience", icon: "" },
+  { id: "resume", label: "Resume", icon: "" }
 ];
 
 export const BACKGROUND_CARDS: BackgroundCard[] = [

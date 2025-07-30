@@ -8,20 +8,19 @@ interface TabNavigationProps {
 
 export function TabNavigation({ activeTab, onTabChange }: TabNavigationProps) {
   return (
-    <div className="flex justify-center mb-12">
-      <div className="flex space-x-2 bg-gray-900/60 backdrop-blur-md rounded-2xl p-2 border border-white/10">
+    <div className="flex justify-center mb-8 sm:mb-12 px-2 sm:px-0">
+      <div className="flex space-x-1 bg-gray-900/50 rounded-lg p-1 overflow-x-auto max-w-full">
         {TAB_CONFIGS.map((tab) => (
           <button
             key={tab.id}
             onClick={() => onTabChange(tab.id)}
             className={cn(
-              "flex items-center space-x-2 py-3 px-6 rounded-xl text-sm font-medium transition-all duration-500 ease-out",
+              "px-3 sm:px-6 py-2 sm:py-3 rounded-md text-xs sm:text-sm font-medium transition-all duration-300 whitespace-nowrap flex-shrink-0",
               activeTab === tab.id
-                ? "bg-gradient-to-r from-neural-500 to-synaptic-500 text-white shadow-lg shadow-neural-500/25 transform scale-105"
-                : "text-gray-400 hover:text-white hover:bg-gray-800/50 hover:scale-105",
+                ? "bg-neural-500 text-white shadow-lg"
+                : "text-gray-400 hover:text-white hover:bg-gray-800/50",
             )}
           >
-            <span className="text-lg">{tab.icon}</span>
             <span>{tab.label}</span>
           </button>
         ))}
