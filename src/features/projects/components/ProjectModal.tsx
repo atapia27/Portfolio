@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import type { Project } from "../data/projects";
 
 interface ProjectModalProps {
@@ -6,11 +7,32 @@ interface ProjectModalProps {
 }
 
 export function ProjectModal({ project, onClose }: ProjectModalProps) {
+  // Handle escape key to close modal
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        onClose();
+      }
+    };
+
+    document.addEventListener('keydown', handleEscape);
+    
+    return () => {
+      document.removeEventListener('keydown', handleEscape);
+    };
+  }, [onClose]);
+
   if (!project) return null;
 
   return (
-    <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-6">
-      <div className="glass-effect rounded-xl p-8 max-w-2xl w-full max-h-[80vh] overflow-y-auto">
+    <div 
+      className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-6"
+      onClick={onClose}
+    >
+      <div 
+        className="glass-effect rounded-xl p-8 max-w-2xl w-full max-h-[80vh] overflow-y-auto"
+        onClick={(e) => e.stopPropagation()}
+      >
         <div className="flex justify-between items-start mb-6">
           <h3 className="text-2xl font-bold text-white">
             {project.title}

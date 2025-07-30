@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ProjectCard } from "./ProjectCard";
 import { ProjectFilterTabs } from "./ProjectFilterTabs";
 import { ProjectModal } from "./ProjectModal";
@@ -8,6 +8,22 @@ import type { Project } from "../data/projects";
 export function ProjectsSection() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const { filter, setFilter, filteredProjects } = useProjectFilter();
+
+  // Toggle body overflow when modal is open/closed
+  useEffect(() => {
+    if (selectedProject) {
+      // Modal is open - disable scrolling
+      document.body.style.overflow = 'hidden';
+    } else {
+      // Modal is closed - re-enable scrolling
+      document.body.style.overflow = '';
+    }
+
+    // Cleanup function to ensure overflow is restored when component unmounts
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [selectedProject]);
 
   return (
     <section
