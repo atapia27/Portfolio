@@ -11,6 +11,28 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+  id: "ai-document-companion",
+  title: "AI Document Companion",
+  description:
+    "Full-stack AI-powered document analysis and knowledge management platform with intelligent Q&A, automated summary generation, and multi-format document processing. Features local-first architecture, serverless backend, and advanced AI model integration with privacy-focused design.",
+  technologies: [
+    "React", 
+    "Next.js 14", 
+    "TypeScript", 
+    "Tailwind CSS", 
+    "Netlify Functions", 
+    "OpenRouter API", 
+    "PDF.js", 
+    "IndexedDB", 
+    "Framer Motion"
+  ],
+  image: "/img/chatExample.png",
+  link: "https://ai-document-companion.netlify.app/",
+  github: "https://github.com/atapia27/Companion",
+  featured: true,
+  },  
+  {
+    
     id: "portfolio-website",
     title: "Portfolio Website",
     description:
@@ -21,6 +43,7 @@ export const projects: Project[] = [
     github: "https://github.com/atapia27/Portfolio",
     featured: true,
   },
+  
   {
     id: "dog-adoption-platform",
     title: "Dog Adoption Platform",

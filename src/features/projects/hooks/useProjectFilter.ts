@@ -5,7 +5,7 @@ import { FRONTEND_TECHNOLOGIES, BACKEND_TECHNOLOGIES } from "../constants";
 export type FilterType = "all" | "featured" | "frontend" | "backend";
 
 export function useProjectFilter() {
-  const [filter, setFilter] = useState<FilterType>("all");
+  const [filter, setFilter] = useState<FilterType>("featured");
 
   const filteredProjects = useMemo(() => {
     return projects.filter((project) => {
