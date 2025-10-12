@@ -11,6 +11,26 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+  id: "concept-generator",
+  title: "AI-Powered Marketing Concept Generator",
+  description: "Full-stack marketing concept generation platform that combines AI-powered creative ideation with comprehensive audience demographic analysis. Features intelligent concept generation using OpenRouter API, audience profiling with behavioral insights, and persistent data management through Supabase. Built with modern React patterns including custom hooks, atomic state management via Zustand, and feature-based architecture for scalable development.",
+  technologies: [
+    "Next.js 15", 
+    "React 19", 
+    "TypeScript", 
+    "Tailwind CSS", 
+    "Supabase", 
+    "OpenRouter API", 
+    "Zustand", 
+    "FontAwesome", 
+    "tw-merge"
+  ],
+  image: "/img/ConceptGenerator.png", // You'll need to add this image
+  link: "https://conceptgenerator.netlify.app", 
+  github: "https://github.com/atapia27/ConceptGenerator",
+  featured: true,
+  },
+  {
   id: "ai-document-companion",
   title: "AI Document Companion",
   description:
